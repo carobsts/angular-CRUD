@@ -1,0 +1,187 @@
+<div class="container app">
+	<div class="row">
+		<div class="col-sm-8">
+			<h1 class="text-center">
+				{{ title }}
+			</h1>
+		</div>
+		<div class="col-sm-4">
+			<div class="alert alert-success alert-dismissable" *ngIf="msg">
+				<a href="#" class="close" (click)="closeAlert()">
+					&times;
+				</a>
+				{{ msg }}
+			</div>
+		</div>
+	</div>
+	<div classs="row">
+		<div class="col-sm-8">
+			<h2> Create Data: </h2>
+			<form class="form-horizontal">
+				<!-- name data -->
+				<div class="form-group">
+					<label for="name" class="control-label col-sm-2">
+						Name:
+					</label>
+					<div class="col-sm-10">
+						<input
+						type="text"
+						class="form-control"
+						id="name"
+						name="name"
+						[(ngModel)]="model.name"
+						placeholder="Enter name"
+						/>
+					</div>
+				</div>
+				<!-- position data -->
+				<div class="form-group">
+					<label for="position" class="control-label col-sm-2">
+						Position:
+					</label>
+					<div class="col-sm-10">
+						<input
+						type="text"
+						class="form-control"
+						id="position"
+						name="position"
+						[(ngModel)]="model.position"
+						placeholder="Enter position"
+						/>
+					</div>
+				</div>
+				<!-- email data -->
+				<div class="form-group">
+					<label for="email" class="control-label col-sm-2">
+						Email:
+					</label>
+					<div class="col-sm-10">
+						<input
+						type="email"
+						class="form-control"
+						id="email"
+						name="email"
+						[(ngModel)]="model.email"
+						placeholder="Enter email"
+						/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-10 col-sm-offset-2">
+						<button
+						type="submit"
+						class="btn btn-success"
+						(click)="addEmployee()"
+						>
+						Save  
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<br/>
+	<div class="row">
+		<div class="col-sm-8">
+			<h2> Read Data: </h2>
+			<br/>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>
+							Name
+						</th>
+						<th>
+							Position
+						</th>
+						<th>
+							Email
+						</th>
+						<th>
+							Actions
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let employee of employees; let i = index">
+						<td> {{ employee.name }} </td>
+						<td> {{ employee.position }} </td>
+						<td> {{ employee.email }} </td>
+						<td> 
+							<button (click)="editEmployee(i)" class="btn btn-success mr-1">
+								Edit
+							</button>
+							<button (click)="deleteEmployee(i)" class="btn btn-danger">
+								Delete
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>	
+		<div class="col-sm-4" [hidden]="hiddeUpdate">
+			<h2> Update Data: </h2>
+			<form class="form-horizontal">
+				<!-- name data -->
+				<div class="form-group">
+					<label for="name" class="control-label col-sm-2">
+						Name:
+					</label>
+					<div class="col-sm-10">
+						<input
+						type="text"
+						class="form-control"
+						id="name"
+						name="name"
+						[(ngModel)]="model2.name"
+						placeholder="Enter name"
+						/>
+					</div>
+				</div>
+				<!-- position data -->
+				<div class="form-group">
+					<label for="position" class="control-label col-sm-2">
+						Position:
+					</label>
+					<div class="col-sm-10">
+						<input
+						type="text"
+						class="form-control"
+						id="position"
+						name="position"
+						[(ngModel)]="model2.position"
+						placeholder="Enter position"
+						/>
+					</div>
+				</div>
+				<!-- email data -->
+				<div class="form-group">
+					<label for="email" class="control-label col-sm-2">
+						Email:
+					</label>
+					<div class="col-sm-10">
+						<input
+						type="email"
+						class="form-control"
+						id="email"
+						name="email"
+						[(ngModel)]="model2.email"
+						placeholder="Enter email"
+						/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-10 col-sm-offset-2">
+						<button
+						type="submit"
+						class="btn btn-success"
+						(click)="updateEmployee()"
+						>
+						Save  
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
