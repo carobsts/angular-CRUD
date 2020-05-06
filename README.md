@@ -1,4 +1,4 @@
 # Angular-CRUD
 CRUD developed in Angular. Learning test
 
-<img src="https://ibb.co/84PKgcG" alt='' />
+<img src="https://i.ibb.co/3YSrmzV/CRUD.png" alt="CRUD" border="0">
